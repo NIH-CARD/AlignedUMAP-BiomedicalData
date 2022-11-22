@@ -1,2 +1,2 @@
 # AlignedUMAP-BiomedicalData
-Application of Aligned-UMAP to longitudinal biomedical studies
+AlignedUMAP for longitudinal datasets analysis in biomedical research
