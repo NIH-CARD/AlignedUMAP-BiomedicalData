@@ -1,0 +1,8 @@
+import streamlit as st
+
+def app(**kwargs):
+    st.title("Description")
+    st.write("This is the local version of streamlit dashboard to visualize trajectories using longitudinal data. These plots are created based on data according to configuration file.")
+    # st.write("## Summary")
+    # st.write("Longitudinal multi-dimensional biological datasets are ubiquitous and highly abundant. These datasets are essential to understanding disease progression, identifying subtypes, and drug discovery. Discovering meaningful patterns or disease pathophysiologies in these datasets is challenging due to their high dimensionality, making it difficult to visualize hidden patterns. Several methods have been developed for dimensionality reduction, but they are limited to cross-sectional datasets. Recently proposed Aligned-UMAP, an extension of the UMAP algorithm, can visualize high-dimensional longitudinal datasets. In this work, we applied Aligned-UMAP on a broad spectrum of clinical, imaging, proteomics, and single-cell datasets. Aligned-UMAP reveals time-dependent hidden patterns when color-coded with the metadata. We found that the algorithm parameters also play a crucial role and must be tuned carefully to utilize the algorithm's potential fully. Altogether, based on its ease of use and our evaluation of its performance on different modalities, we anticipate that Aligned-UMAP will be a valuable tool for the biomedical community. We also believe our benchmarking study becomes more important as more and more high-dimensional longitudinal data in biomedical research becomes available.")
+    # st.write("""Preprint: https://www.biorxiv.org/content/10.1101/2022.12.12.518225v1""")

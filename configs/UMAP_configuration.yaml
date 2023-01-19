@@ -1,0 +1,18 @@
+data_dir: "input_data"
+result_dir: "results_data"
+cache_dir: "cache_data"
+dataset_name: "example_PPMI_clincal_assessment_data.csv"
+metadata_name: "example_metadata_PPMI_clincal_assessment_data.csv"
+perform_interpolation: 1
+num_cores: -1
+sample_fraction: 1
+metric:
+  - "euclidean"
+  - "cosine"
+n_neighbors:
+  - "03"
+  - "05"
+  - "10"
+min_dist:
+  - "0.01"
+  - "0.10"
