@@ -196,8 +196,6 @@ def app(fname, input_dataset_name, color_column_list, metadata_descriptions, com
         all_subjects = list(data['subject_id'].unique())
         random.seed(42)
         random.shuffle(all_subjects)
-        print('All subject', len(all_subjects), 'Selected_subjects', num_subjects, len(data))
-
 
         if num_subjects < 1:
             X = data.drop_duplicates(subset=['subject_id', colorname])
@@ -359,7 +357,6 @@ def app(fname, input_dataset_name, color_column_list, metadata_descriptions, com
     @st.cache(hash_funcs={"MyUnhashableClass": lambda _: None}, allow_output_mutation=True, ttl=24 * 3600)
     def generate_plot_gaussian(fig, dummy=None):
         grid_color = 'white'
-        # fig.update_traces(showlegend=True)
         fig.update_layout(
             width=800,
             height=800,
