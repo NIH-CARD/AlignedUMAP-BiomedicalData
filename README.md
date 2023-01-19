@@ -16,13 +16,10 @@ It also contains the code for [streamlit dashboard](https://alignedumap-biomedic
 
 To create and activate a virtual environment:
 ```
-conda create -n AlignedUMAP python=3.8 anaconda
-conda install -n AlignedUMAP -c conda-forge tslearn
-conda install -n AlignedUMAP -c conda-forge wand
-conda install -n AlignedUMAP -c conda-forge python-kaleido
-conda install -n AlignedUMAP -c conda-forge omegaconf
-conda install -n AlignedUMAP -c conda-forge umap-learn
-conda activate AlignedUMAP && pip install -r requirements.txt
+conda create -n AlignedUMAP python=3.8
+conda install -n AlignedUMAP -c conda-forge tslearn omegaconf umap-learn # for AlignedUMAP execution
+conda install -n AlignedUMAP -c congda-forge wand python-kaleido  # for visualization using jupyter notebook 
+conda activate AlignedUMAP && pip install -r requirements.txt  # for streamlit dashboard
 ```
 
 ## Execution
