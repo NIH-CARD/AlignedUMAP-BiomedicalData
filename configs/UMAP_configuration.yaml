@@ -1,8 +1,8 @@
 data_dir: "input_data"
 result_dir: "results_data"
 cache_dir: "cache_data"
-dataset_name: "example_PPMI_clincal_assessment_data.csv"
-metadata_name: "example_metadata_PPMI_clincal_assessment_data.csv"
+dataset_name: "example_PPMI_clinical_assessment_data.csv"
+metadata_name: "example_metadata_PPMI_clinical_assessment_data.csv"
 perform_interpolation: 1
 num_cores: -1
 sample_fraction: 1
