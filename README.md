@@ -5,8 +5,8 @@ This is a repository for the analysis presented in paper **Aligned-UMAP for long
 It also contains the code for [streamlit dashboard](https://alignedumap-biomedicaldata.streamlit.app) developed for better visualization of longitudinal trajectories.
 
 ### Key Points
-- Used python implementation of [Aligned-UMAP](https://umap-learn.readthedocs.io/en/latest/aligned_umap_basic_usage.html) as described in [umap-learn](https://umap-learn.readthedocs.io/en/latest/) documentation
-- Explored the utility of _Aligned-UMAP_ in multiple longitudinal biomedical datasets
+- Used python implementation of [Aligned-UMAP](https://umap-learn.readthedocs.io/en/latest/aligned_umap_basic_usage.html) from [umap-learn](https://umap-learn.readthedocs.io/en/latest/) package
+- Explored the utility of Aligned-UMAP in multiple longitudinal biomedical datasets
 - Offer insights on optimal uses for the technique such as effect of hyperparameters
 - An interactive 3D visualization of trajectory plots via streamlit dashboard to discover hidden patterns
 
@@ -23,6 +23,10 @@ conda activate AlignedUMAP && pip install -r requirements.txt  # for streamlit d
 ```
 
 ## Execution
+### Step0: Clone github repository
+```bash
+git clone https://github.com/NIH-CARD/AlignedUMAP-BiomedicalData.git
+```
 ### Step1: Prepare data
 - **subject_id** is the sample index and **time_id** is the time point at which feature values are observed
 - Prepare a _csv_ file with the following format (see [input_data/example_PPMI_clinical_assessment_data.csv](https://github.com/NIH-CARD/AlignedUMAP-BiomedicalData/tree/main/input_data/example_PPMI_clinical_assessment_data.csv)): 
@@ -63,54 +67,21 @@ Update [configs/alignedUMAP_configuration.yaml](https://github.com/NIH-CARD/Alig
 | min_dist                 |                   ["0.01", "0.10"]                   |                            AlignedUMAP hyperparmeter5                            |
 
 ### Step3: Execute AlignedUMAP
-The following python command will run AlignedUMAP with all combination of hyperparameters (similar to GridSearch) listed in configuration file.
+Use jupyter notebook [apply_alignedUMAP.ipynb](https://github.com/NIH-CARD/AlignedUMAP-BiomedicalData/blob/main/apply_alignedUMAP.ipynb) to run AlignedUMAP with all combination of hyperparameters listed in configuration file.
 ```python
 conda activate AlignedUMAP
-python apply_alignedUMAP.py configs/alignedUMAP_configuration.yaml
-```
-Terminal output should look like the following
-```
-> python apply_alignedUMAP.py configs/alignedUMAP_configuration.yaml
--------------------------------------------------- Executing --------------------------------------------------
-Dataset filename: example_PPMI_clincal_assessment_data | Metadata filename: example_metadata_PPMI_clincal_assessment_data
-Number of hyper parameters 48
--------------------------------------------------- Hyper parameter (index=0) --------------------------------------------------
-{'metric': 'euclidean', 'alignment_regularisation': 0.003, 'alignment_window_size': 2, 'n_neighbors': 3, 'min_dist': 0.01, 'num_cores': 10, 'sample_fraction': '1.0', 'id': 'metric=euclidean;alignment_regularisation=0.003;alignment_window_size=2;n_neighbors=03;min_dist=0.01;num_cores=10;sample_fraction=1.0'}
--------------------------------------------------- --------------------------------------------------
-Aligned UMAP running...
-Starts at: 2023-01-19 15:28:34
-Completed at: 2023-01-19 15:28:44
-Total time taken (hh:mm:ss): 0:00:10
--------------------------------------------------- Hyper parameter (index=1) --------------------------------------------------
-{'metric': 'cosine', 'alignment_regularisation': 0.003, 'alignment_window_size': 3, 'n_neighbors': 10, 'min_dist': 0.01, 'num_cores': 10, 'sample_fraction': '1.0', 'id': 'metric=cosine;alignment_regularisation=0.003;alignment_window_size=3;n_neighbors=10;min_dist=0.01;num_cores=10;sample_fraction=1.0'}
--------------------------------------------------- --------------------------------------------------
-Aligned UMAP running...
-Starts at: 2023-01-19 15:16:42
-Completed at: 2023-01-19 15:16:47
-Total time taken (hh:mm:ss): 0:00:05
-.
-.
-.
--------------------------------------------------- Hyper parameter (index=47) --------------------------------------------------
-{'metric': 'cosine', 'alignment_regularisation': 0.03, 'alignment_window_size': 3, 'n_neighbors': 10, 'min_dist': 0.1, 'num_cores': 10, 'sample_fraction': '1.0', 'id': 'metric=cosine;alignment_regularisation=0.030;alignment_window_size=3;n_neighbors=10;min_dist=0.10;num_cores=10;sample_fraction=1.0'}
--------------------------------------------------- --------------------------------------------------
-Aligned UMAP running...
-Starts at: 2023-01-19 15:32:51
-Completed at: 2023-01-19 15:32:57
-Total time taken (hh:mm:ss): 0:00:06
--------------------------------------------------- --------------------------------------------------
-Congratulations!
-Summarized results for all hyper parameters: results_data/example_PPMI_clincal_assessment_data/umap_aligned/generated_data/example_PPMI_clincal_assessment_data_10_1.0.pickle
+jupyter lab
+# then run apply_alignedUMAP.ipynb 
 ```
 
-It will save output files in _result_dir_ in the _dataset_name_ directory according to _configuration_ file.
+It will save output files in _result_dir_ directory according to paths mentioned _configuration_ file.
 
 ### Step4: Visualize AlignedUMAP
-To visualize longitudinal trajectory plots, we can use streamlit dashboard or jupyter notebook.
+To visualize longitudinal trajectory plots, users can use streamlit dashboard or jupyter notebook.
 
 **Way1**: Using streamlit dashboard
 
-To view an interactive version of 3D plot.
+To view an interactive version of 3D plot, run the following commands in bash.
 ```python
 conda activate AlignedUMAP
 streamlit run streamlit_app_local.py -- configs/alignedUMAP_configuration.yaml
@@ -121,11 +92,11 @@ The dashboard should appear like the following image in browser (on visiting _lo
 
 **Way2**: Using jupyter notebook
 
-The notebook can be used to view non-interactive trajectory plots with different hyperparameters. It will also save plots as pdf in **parameter_views_pdf** directory.
+Use jupyter notebook [visualize_trajectories.ipynb](https://github.com/NIH-CARD/AlignedUMAP-BiomedicalData/blob/main/visualize_trajectories.ipynb) to view non-interactive trajectory plots with different hyperparameters. It will also save plots as pdf in **parameter_views_pdf** directory.
 ```python
 conda activate AlignedUMAP
 jupyter lab
-# then open visualize_trajectories.ipynb
+# then run visualize_trajectories.ipynb
 ```
 
 ## Execution times
