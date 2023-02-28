@@ -34,7 +34,7 @@ combined_best_parameters = {
 color_columns = {
         'PPMI_FOR_ALIGNED_TIME_SERIES': ['Subtypes'],
         'ADNI_FOR_ALIGNED_TIME_SERIES': ['Subtypes'],
-        'NORM-ALVEOLAR_metacelltype': ['cell.type', 'metacelltype'],
+        'NORM-ALVEOLAR_metacelltype': ['cell.type'],
         'NORM-COVID19Proteomics': ['Acuity_max'],
         'MINMAX_MIMIC_ALLSAMPLES': ['LAST_CAREUNIT'],
 }
