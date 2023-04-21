@@ -6,7 +6,7 @@ It also contains the code for [streamlit dashboard](https://alignedumap-biomedic
 
 ### Key Points
 - Used python implementation of [Aligned-UMAP](https://umap-learn.readthedocs.io/en/latest/aligned_umap_basic_usage.html) from [umap-learn](https://umap-learn.readthedocs.io/en/latest/) package
-- Explored the utility of Aligned-UMAP in multiple longitudinal biomedical datasets
+- Explored the utility of Aligned-UMAP in multiple longitudinal biomedical datasets 
 - Offer insights on optimal uses for the technique such as effect of hyperparameters
 - An interactive 3D visualization of trajectory plots via streamlit dashboard to discover hidden patterns
 
